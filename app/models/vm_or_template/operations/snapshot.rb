@@ -92,6 +92,14 @@ module VmOrTemplate::Operations::Snapshot
     raw_remove_snapshot_by_description(description, refresh)
   end
 
+  def raw_update_snapshot(_snapshot_id, _options = {})
+    raise NotImplementedError, _("must be implemented in a subclass")
+  end
+
+  def update_snapshot(snapshot_id, options = {})
+    raw_update_snapshot(snapshot_id, options)
+  end
+
   def raw_remove_all_snapshots
     raise NotImplementedError, _("must be implemented in a subclass")
   end
